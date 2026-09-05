@@ -19,7 +19,7 @@ jobs:
 
 
       - name: Installs dependencies
-        run: npm install
+        run: npm ci
 
       - name: Runs test script from package.json
         run: npm test  
