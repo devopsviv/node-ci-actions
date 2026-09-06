@@ -2,24 +2,24 @@ name: deploy-app
 
 on:
   push:
-    branches: [ "feature-deploy" ]
+    branches:
+      - feature-deploy
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Sets up Node.js 20
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-                node-version: '20'
+          node-version: 20
 
+      - name: Install dependencies
+        run: npm install
 
-      - name: Installs dependencies
-        run: npm ci
-
-      - name: Runs test script from package.json
-        run: npm test  
+      - name: Run tests
+        run: npm test
